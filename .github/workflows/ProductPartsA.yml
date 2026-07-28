@@ -1,0 +1,32 @@
+name: Model verification example for the CruiseControlMode model
+
+on:
+  # Triggers the workflow on push events but only for the main branch
+  push:
+    paths:
+      - 'Test/Sample/ctrl/ctrldesign/parts/SamplePartsA/**/*'
+
+  # Allows you to run this workflow manually from the Actions tab
+  workflow_dispatch:
+
+env:
+  MODELNAME: 'SamplePartsA'
+  MODELPATH: ''
+
+jobs:
+  setup:
+    runs-on: self-hosted
+    steps:
+      - name: Model Setup
+        shell: cmd
+        run: |
+          matlab -batch "trse_ci_mdlenv(MODELPATH,MODELNAME);
+          
+  mdlchk:
+    runs-on: self-hosted
+    needs: [setup]
+    steps:
+      - name: Run ModelAdvisor
+        shell: cmd
+        run: |
+          matlab -batch "trse_ci_mdlchk(MODELPATH,MODELNAME);
