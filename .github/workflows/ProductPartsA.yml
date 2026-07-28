@@ -11,7 +11,7 @@ on:
 
 env:
   MODELNAME: 'SamplePartsA'
-  MODELPATH: ''
+  MODELPATH: 'C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\Test\Sample\ctrl\ctrldesign\parts\SamplePartsA'
 
 jobs:
   setup:
