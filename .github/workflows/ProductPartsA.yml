@@ -10,17 +10,23 @@ on:
   workflow_dispatch:
 
 env:
-  MODELNAME: 'SamplePartsA'
-  MODELPATH: 'C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\Test\Sample\ctrl\ctrldesign\parts\SamplePartsA'
+  MODELNAME: SamplePartsA
+  MODELPATH: C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\Test\Sample\ctrl\ctrldesign\parts\SamplePartsA
 
 jobs:
+  checkout:
+    runs-on: self-hosted
+    steps:
+      - name: Check out repository
+        uses: actions/checkout@v4
+        
   setup:
     runs-on: self-hosted
     steps:
       - name: Model Setup
         shell: cmd
         run: |
-          matlab -batch "trse_ci_mdlenv(MODELPATH,MODELNAME);
+          matlab -batch "addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool'); trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
           
   mdlchk:
     runs-on: self-hosted
@@ -29,4 +35,4 @@ jobs:
       - name: Run ModelAdvisor
         shell: cmd
         run: |
-          matlab -batch "trse_ci_mdlchk(MODELPATH,MODELNAME);
+          matlab -batch "trse_ci_mdlchk('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
