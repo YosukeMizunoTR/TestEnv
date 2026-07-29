@@ -1,5 +1,5 @@
 function trse_ci_mdlenv(FileName,ModelName)
-
+    slCharacterEncoding('UTF-8')
     Rlt = trse_mdlenv(FileName,ModelName,true);
 
     if ~Rlt.Xresult %結果NG
