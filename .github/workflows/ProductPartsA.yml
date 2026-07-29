@@ -37,8 +37,8 @@ jobs:
         shell: cmd
         run: |
           echo ‚±‚ñ‚É‚¿‚Í
-          chcp 932
-          "%MATLAB_EXE%" -batch "slCharacterEncoding;, trrc;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
+          chcp 65001
+          "%MATLAB_EXE%" -batch "slCharacterEncoding('UTF-8');, trrc;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
 
   mdlchk:
     runs-on: self-hosted
