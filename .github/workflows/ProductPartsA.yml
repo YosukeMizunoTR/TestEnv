@@ -36,6 +36,7 @@ jobs:
       - name: Model Setup
         shell: cmd
         run: |
+          chcp 932
           "%MATLAB_EXE%" -batch "slCharacterEncoding;, trrc;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
 
   mdlchk:
