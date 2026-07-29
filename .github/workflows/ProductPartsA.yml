@@ -15,6 +15,14 @@ env:
   MODELPATH: C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\Test\Sample\ctrl\ctrldesign\parts\SamplePartsA
 
 jobs:
+  code:
+    runs-on: self-hosted
+    steps:
+      - name: Check Code
+        shell: cmd
+        run: |
+          chcp
+
   checkout:
     runs-on: self-hosted
     steps:
