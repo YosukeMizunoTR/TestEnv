@@ -27,7 +27,7 @@ jobs:
       - name: Model Setup
         shell: cmd
         run: |
-          "%MATLAB_EXE%" -batch "ver;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
+          "%MATLAB_EXE%" -batch "addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
           
   mdlchk:
     runs-on: self-hosted
