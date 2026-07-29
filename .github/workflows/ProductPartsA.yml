@@ -34,11 +34,12 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Model Setup
-        shell: cmd
+        shell: powershell
         run: |
-          echo ‚±‚ñ‚É‚¿‚Í
+          [Consolencoding = [System.Text.Encoding]::UTF8
+          Write-Host "‚±‚ñ‚É‚¿‚Í"
           chcp 65001
-          echo ‚±‚ñ‚É‚¿‚Í
+          Write-Host "‚±‚ñ‚É‚¿‚Í"
           "%MATLAB_EXE%" -batch "feature('locale'), slCharacterEncoding('UTF-8'), feature('locale'), trrc;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
 
   mdlchk:
