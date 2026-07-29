@@ -38,6 +38,7 @@ jobs:
         run: |
           echo ‚±‚ñ‚É‚¿‚Í
           chcp 65001
+          echo ‚±‚ñ‚É‚¿‚Í
           "%MATLAB_EXE%" -batch "feature('locale'), slCharacterEncoding('UTF-8'), feature('locale'), trrc;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
 
   mdlchk:
