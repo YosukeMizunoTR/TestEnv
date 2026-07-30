@@ -38,4 +38,3 @@ function trse_ci_mdlchk(FileName,ModelName)
 	end
 
 end
-

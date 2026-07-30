@@ -10,10 +10,27 @@ on:
   workflow_dispatch:
 
 env:
+  ##############
+  ###環境情報###
+  ##############
   MATLAB_EXE: C:/Program Files/MATLAB/R2023a/bin/matlab.exe
+
+  
+  ######################
+  ###ユーザーカスタム###
+  ######################
+  #評価するモデル名(拡張子不要)
   MODELNAME: SamplePartsA
-  MODELPATH: C:/Users/C9166/actions-runner/_work/TestEnv/TestEnv/Test/Sample/ctrl/ctrldesign/parts/SamplePartsA
+  
+  #評価するモデルのフルパス(リポジトリ最上位フォルダを含まないフルパス)
+  MODELPATH: Test/Sample/ctrl/ctrldesign/parts/SamplePartsA
+  
+  #本ymlから呼びたいスクリプトのパスを指定する。(リポジトリ最上位フォルダを含まないフルパス)
+  SCRIPTPATH: tool
+  
+  #アーティファクトのファイル名
   MODELCHKREPORT: SamplePartsA_mdlchkreport
+
 
 jobs:
   checkout:
@@ -42,7 +59,7 @@ jobs:
       - name: Run ModelAdvisor
         shell: cmd
         run: |
-          "%MATLAB_EXE%" -batch "addpath('C:/Users/C9166/actions-runner/_work/TestEnv/TestEnv/tool');, trse_ci_trrc();, trse_ci_mdlchk('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
+          "%MATLAB_EXE%" -batch "addpath(fullfile( pwd,'${{ env.SCRIPTPATH }}'));, trse_ci_trrc();, trse_ci_mdlchk(fullfile( pwd,'${{ env.MODELPATH }}'),'${{ env.MODELNAME }}');"
 
   report_mdlchk:
     runs-on: self-hosted
