@@ -39,7 +39,7 @@ jobs:
           echo こんにちは
           chcp 65001
           echo こんにちは
-          "%MATLAB_EXE%" -batch "feature('DefaultCharacterSet','UTF8'); disp('こんにちは'); feature('locale'), addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_trrc();, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
+          "%MATLAB_EXE%" -batch "feature('DefaultCharacterSet','UTF8'); disp('こんにちは'); feature('locale')"
 
   mdlchk:
     runs-on: self-hosted
