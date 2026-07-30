@@ -36,10 +36,9 @@ jobs:
       - name: Model Setup
         shell: powershell
         run: |
-          [Consolencoding = [System.Text.Encoding]::UTF8
-          Write-Host "こんにちは"
+          echo こんにちは
           chcp 65001
-          Write-Host "こんにちは"
+          echo こんにちは
           "%MATLAB_EXE%" -batch "feature('locale'), slCharacterEncoding('UTF-8'), feature('locale'), trrc;, addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_mdlenv('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
 
   mdlchk:
