@@ -8,6 +8,8 @@ function trse_ci_mdlenv(FileName,ModelName)
 		exit(3);
 	end
 	
+	Rlt = trse_mdlenv(FileName,ModelName);
+	
 	try
 	    if ~Rlt.Xresult %結果NG
 	        disp(Rlt.Comment);
