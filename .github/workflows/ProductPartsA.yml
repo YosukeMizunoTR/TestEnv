@@ -16,14 +16,6 @@ env:
   MODELCHKREPORT: SamplePartsA_mdlchkreport
 
 jobs:
-  code:
-    runs-on: self-hosted
-    steps:
-      - name: Check Code
-        shell: cmd
-        run: |
-          chcp
-
   checkout:
     runs-on: self-hosted
     steps:
@@ -37,6 +29,7 @@ jobs:
       - name: Model Setup
         shell: cmd
         run: |
+          chcp
           echo こんにちは
           chcp 65001
           echo こんにちは
@@ -59,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.MODELCHKREPORT }}
-          path: ./Test/Sample/ctrl/ctrldesign/parts/work/alltest/mdlchk
+          path: .Test/Sample/ctrl/ctrldesign/parts/SamplePartsA/work/alltest/mdlchk
