@@ -1,6 +1,6 @@
 function trse_ci_mdlenv(FileName,ModelName)
 
-	fprintf('MODEL setup start');
+	fprintf('MODEL setup start\n');
 	try
 		
 		Rlt = trse_mdlenv(FileName,ModelName,true);

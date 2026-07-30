@@ -8,7 +8,7 @@ function trse_ci_mdlchk(FileName,ModelName)
 	trse_ci_mdlenv(FileName,ModelName);
 
 	%ガイドラインチェック実施
-	fprintf('GuideLineCheck start');
+	fprintf('GuideLineCheck start\n');
 
 	try
 	
@@ -16,16 +16,16 @@ function trse_ci_mdlchk(FileName,ModelName)
 
 	    if ~Rlt.Xresult %結果NG
 	    
-	    	fprintf('check OK!');
-	    	fprintf('Result NG...');
-	        fprintf(Rlt.Comment);
-	        fprintf('GuideLineCheck end');
+	    	fprintf('check OK!\n');
+	    	fprintf('Result NG...\n');
+	        fprintf('%s\n',Rlt.Comment);
+	        fprintf('GuideLineCheck end\n');
 	        exit(2);
 	        
 	    else
 	    
-	    	fprintf('check OK!');
-	    	fprintf('Result OK!');
+	    	fprintf('check OK!\n');
+	    	fprintf('Result OK!\n');
 	    	fprintf('GuideLineCheck end\n');
 	    
 	    end
