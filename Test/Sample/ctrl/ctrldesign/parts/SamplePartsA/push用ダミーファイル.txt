@@ -8,3 +8,20 @@ chcp 65001
 
 Shift_JIS
 UTF-8
+
+
+
+
+
+  setup:
+    needs: [checkout]
+    runs-on: self-hosted
+    steps:
+      - name: Model Setup
+        shell: cmd
+        run: |
+          chcp
+          echo こんにちは
+          chcp 65001
+          echo こんにちは
+          "%MATLAB_EXE%" -batch "feature('DefaultCharacterSet','UTF8'); disp('こんにちは'); feature('locale')"

@@ -22,10 +22,10 @@ env:
   #評価するモデル名(拡張子不要)
   MODELNAME: SamplePartsA
   
-  #評価するモデルのフルパス(リポジトリ最上位フォルダを含まないフルパス)
+  #評価するモデルのフルパス(リポジトリ最上位フォルダを含まないリポジトリ内のフルパス)
   MODELPATH: Test/Sample/ctrl/ctrldesign/parts/SamplePartsA
   
-  #本ymlから呼びたいスクリプトのパスを指定する。(リポジトリ最上位フォルダを含まないフルパス)
+  #本ymlから呼びたいスクリプトのパスを指定する。(リポジトリ最上位フォルダを含まないリポジトリ内のフルパス)
   SCRIPTPATH: tool
   
   #アーティファクトのファイル名
@@ -39,22 +39,9 @@ jobs:
       - name: Check out repository
         uses: actions/checkout@v4
         
-  setup:
-    needs: [checkout]
-    runs-on: self-hosted
-    steps:
-      - name: Model Setup
-        shell: cmd
-        run: |
-          chcp
-          echo こんにちは
-          chcp 65001
-          echo こんにちは
-          "%MATLAB_EXE%" -batch "feature('DefaultCharacterSet','UTF8'); disp('こんにちは'); feature('locale')"
-
   mdlchk:
     runs-on: self-hosted
-    needs: [setup]
+    needs: [checkout]
     steps:
       - name: Run ModelAdvisor
         shell: cmd
