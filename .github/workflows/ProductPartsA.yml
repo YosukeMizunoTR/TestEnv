@@ -51,7 +51,7 @@ jobs:
         run: |
           "%MATLAB_EXE%" -batch "addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_trrc();, trse_ci_mdlchk('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
 
- report_mdlchk
+ report_mdlchk:
     runs-on: self-hosted
     needs: [mdlchk]
     steps:
