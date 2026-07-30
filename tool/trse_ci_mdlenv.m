@@ -13,7 +13,7 @@ function trse_ci_mdlenv(FileName,ModelName)
 	    end
 	    
 	catch ME
-		disp('%s\n', ME.message);
+		fprintf('%s\n', ME.message);
 		exit(3);
 	end
 
