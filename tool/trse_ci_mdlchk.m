@@ -1,7 +1,7 @@
 function trse_ci_mdlchk(FileName,ModelName)
 
 	disp('GuideLineCheck start');
-	trse_ci_mdlenv(FileName,ModelName,true);
+	trse_ci_mdlenv(FileName,ModelName);
 
     Rlt = trse_mdlenv(FileName,ModelName,'Full');
 
