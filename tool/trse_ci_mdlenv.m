@@ -1,20 +1,23 @@
 function trse_ci_mdlenv(FileName,ModelName)
 
-	disp('MODEL setup start');
+	fprintf('MODEL setup start');
 	try
 		
 		Rlt = trse_mdlenv(FileName,ModelName,true);
 
 	    if ~Rlt.Xresult %結果NG
-	        disp(Rlt.Comment);
+	        fprintf(Rlt.Comment);
 	        exit(100);
 	    else
-	    	disp('MODEL setup end');
+	    	fprintf('MODEL setup end\n');
 	    end
 	    
 	catch ME
+	
 		fprintf('%s\n', ME.message);
+		fprintf('MODEL setup error\n');
 		exit(3);
+	
 	end
 
 end

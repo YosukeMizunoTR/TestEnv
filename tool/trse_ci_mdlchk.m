@@ -1,19 +1,41 @@
 function trse_ci_mdlchk(FileName,ModelName)
 
-	%設定
+	%ガイドラインチェック設定
 	Justice.Run = false;
 	Justice.File = '';
 
-	disp('GuideLineCheck start');
+	%セットスクリプト実施
 	trse_ci_mdlenv(FileName,ModelName);
 
-    Rlt = trse_mdlchk(FileName,ModelName,'Full',Justice);
+	%ガイドラインチェック実施
+	fprintf('GuideLineCheck start');
 
-    if ~Rlt.Xresult %結果NG
-        disp(Rlt.Comment);
-        disp('GuideLineCheck end');
-        exit(2);
-    end
+	try
+	
+	    Rlt = trse_mdlchk(FileName,ModelName,'Full',Justice);
+
+	    if ~Rlt.Xresult %結果NG
+	    
+	    	fprintf('check OK!');
+	    	fprintf('Result NG...');
+	        fprintf(Rlt.Comment);
+	        fprintf('GuideLineCheck end');
+	        exit(2);
+	        
+	    else
+	    
+	    	fprintf('check OK!');
+	    	fprintf('Result OK!');
+	    	fprintf('GuideLineCheck end\n');
+	    
+	    end
+	
+	catch ME
+	
+		fprintf('%s\n', ME.message);
+		fprintf('GuideLineCheck error\n');
+		exit(3);
+	end
 
 end
 
