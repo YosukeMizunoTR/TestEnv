@@ -13,6 +13,7 @@ env:
   MATLAB_EXE: C:\Program Files\MATLAB\R2023a\bin\matlab.exe
   MODELNAME: SamplePartsA
   MODELPATH: C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\Test\Sample\ctrl\ctrldesign\parts\SamplePartsA
+  MODELCHKREPORT: SamplePartsA_mdlchkreport
 
 jobs:
   code:
@@ -49,3 +50,13 @@ jobs:
         shell: cmd
         run: |
           "%MATLAB_EXE%" -batch "addpath('C:\Users\C9166\actions-runner\_work\TestEnv\TestEnv\tool');, trse_ci_trrc();, trse_ci_mdlchk('${{ env.MODELPATH }}','${{ env.MODELNAME }}');"
+
+ report_mdlchk
+    runs-on: self-hosted
+    needs: [mdlchk]
+    steps:
+      - name: ModelAdvisor Report
+        uses: action/upload-artifact@v4
+        with:
+          name: ${{ env.MODELCHKREPORT }}
+          path: .Test\Sample\ctrl\ctrldesign\parts\work\alltest\mdlchk
