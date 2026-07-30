@@ -1,5 +1,5 @@
 function trse_ci_mdlenv(FileName,ModelName)
-	
+
 	disp('MODEL setup start');
 	try
 		
