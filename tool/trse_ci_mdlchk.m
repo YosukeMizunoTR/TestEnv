@@ -20,7 +20,7 @@ function trse_ci_mdlchk(FileName,ModelName)
 	    	fprintf('Result NG...\n');
 	        fprintf('%s\n',Rlt.Comment);
 	        fprintf('GuideLineCheck end\n');
-	        %exit(2);
+	        %exit(2); エラーがあるとアーティファクトを作成できないのでとりあえず成功側にしておく
 	        
 	    else
 	    

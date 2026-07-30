@@ -1,5 +1,8 @@
 function trse_ci_mdlenv()
 
+	%TR環境セットアップ用関数
+	%MATLABで作業を行うjobの場合、必ず最初の本関数を実行する
+
 	try
 	
 	  disp('MATLAB(mbd_common) setup start');	%普段MATLAB起動時にコマンドウインドウに表示させる内容を表示させない(開始)
