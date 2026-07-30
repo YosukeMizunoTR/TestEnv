@@ -52,4 +52,4 @@ jobs:
         uses: actions/upload-artifact@v4
         with:
           name: ${{ env.MODELCHKREPORT }}
-          path: .Test/Sample/ctrl/ctrldesign/parts/SamplePartsA/work/alltest/mdlchk
+          path: ./Test/Sample/ctrl/ctrldesign/parts/SamplePartsA/work/alltest/mdlchk
